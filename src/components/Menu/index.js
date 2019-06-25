@@ -5,10 +5,15 @@ import {
   Container, Code, Nav, NavItem, NavText, SignOutButtom, SignOutButtomText,
 } from './styles';
 
-export default function Menu() {
+export default function Menu({ translateY }) {
   return (
-    <Container>
-
+    <Container style={{
+      opacity: translateY.interpolate({
+        inputRange: [0, 150],
+        outputRange: [0, 1],
+      }),
+    }}
+    >
       {/* QRCode */}
       <Code>
         <QRCode
@@ -48,7 +53,7 @@ export default function Menu() {
       </Nav>
 
       {/* Botão Sair */}
-      <SignOutButtom onPress={() => {}}>
+      <SignOutButtom onPress={() => { }}>
         <SignOutButtomText>SAIR DA CONTA</SignOutButtomText>
       </SignOutButtom>
     </Container>
